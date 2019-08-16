@@ -6,18 +6,18 @@ import (
 	"strings"
 )
 
-func Validate(model interface{}) errors {
+func Validate(model interface{}) Errors {
 	return validate(reflect.ValueOf(model))
 }
 
-type errors map[string][]error
+type Errors map[string][]error
 
-func (e errors) add(name string, err error) {
+func (e Errors) add(name string, err error) {
 	e[name] = append(e[name], err)
 }
 
-func validate(model reflect.Value) errors {
-	errorsBag := make(errors)
+func validate(model reflect.Value) Errors {
+	errorsBag := make(Errors)
 
 	if model.Kind() != reflect.Struct {
 		errorsBag.add("fatal", fmt.Errorf("models must be of type struct"))
