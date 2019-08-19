@@ -1,14 +1,11 @@
 sudo: required
 
 services:
-  - docker
-
-before_install:
-  - docker build -t elalem/struct-validator .
+  - go
 
 script:
-  - docker run elalem/struct-validator go test -race -coverprofile=coverage.txt -covermode=atomic
-  - docker run elalem/struct-validator go test -race -coverprofile=coverage.txt -covermode=atomic ./required
+  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - go test -race -coverprofile=coverage.txt -covermode=atomic ./required
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
