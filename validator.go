@@ -7,12 +7,14 @@ import (
 	"sync"
 )
 
+var mu sync.Mutex
+
+// Validate runs the validations on a specific models in parallel
 func Validate(model interface{}) Errors {
 	return validate(reflect.ValueOf(model))
 }
 
-var mu sync.Mutex
-
+// Errors represents the validation errors
 type Errors map[string][]error
 
 func (e Errors) add(name string, err error) {

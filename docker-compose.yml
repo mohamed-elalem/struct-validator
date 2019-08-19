@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  go:
+    container_name: app
+    tty: true
+    stdin_open: true
+    build: .
+    volumes:
+      - .:/usr/local/app

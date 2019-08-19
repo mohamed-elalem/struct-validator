@@ -3,6 +3,7 @@ package validator
 import (
 	"fmt"
 	"reflect"
+	"sync"
 	"testing"
 )
 
@@ -17,6 +18,7 @@ func TestRegisterValidator(t *testing.T) {
 }
 
 func TestValidateWithCorrectValidators(t *testing.T) {
+	var mu sync.Mutex
 	type TestStruct struct {
 		a string `validate:"required,email"`
 		b string `validate:"email"`
@@ -26,11 +28,15 @@ func TestValidateWithCorrectValidators(t *testing.T) {
 
 	emailValidatorCalls, requiredValidatorCalls := 0, 0
 	emailValidator := func(_ reflect.StructField, _ reflect.Value) error {
+		mu.Lock()
 		emailValidatorCalls++
+		mu.Unlock()
 		return nil
 	}
 	requiredValidator := func(_ reflect.StructField, _ reflect.Value) error {
+		mu.Lock()
 		requiredValidatorCalls++
+		mu.Unlock()
 		return nil
 	}
 

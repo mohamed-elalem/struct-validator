@@ -12,7 +12,8 @@ func init() {
 	validators = make(map[string]ValidatorHandler)
 }
 
-// RegisterValidator maps a validator by name to a corrosponding handler
+// RegisterValidator maps a validator by name to a corrosponding handler.
+// These handlers should not mutate any global data as these handlers run in parallel.
 func RegisterValidator(name string, handler ValidatorHandler) {
 	validators[name] = handler
 }
