@@ -7,8 +7,7 @@ before_install:
   go get -v github.com/mohamed-elalem/struct-validator
 
 script:
-  - go test -race -coverprofile=coverage.txt -covermode=atomic
-  - go test -race -coverprofile=coverage.txt -covermode=atomic ./required
+  - go test -race -coverprofile=coverage.txt -covermode=atomic . ./required
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
