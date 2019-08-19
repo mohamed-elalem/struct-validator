@@ -1,3 +1,3 @@
 # Struct validator
 
-[![Build Status](https://travis-ci.org/dwyl/esta.svg?branch=master)](https://travis-ci.org/dwyl/esta) [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/dwyl/hapi-auth-jwt2.svg?maxAge=2592000)](https://codecov.io/github/dwyl/hapi-auth-jwt2?branch=master) [![Code Climate](https://codeclimate.com/github/dwyl/esta/badges/gpa.svg)](https://codeclimate.com/github/dwyl/esta) [![Dependency Status](https://david-dm.org/dwyl/esta.svg)](https://david-dm.org/dwyl/esta) [![devDependencies Status](https://david-dm.org/dwyl/hapi-auth-jwt2/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-jwt2?type=dev)
+[![Build Status](https://travis-ci.org/mohamed-elalem/struct-validator.svg?branch=master)](https://travis-ci.org/mohamed-elalem/struct-validator) [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/mohamed-elalem/struct-validator.svg?maxAge=2592000)](https://codecov.io/github/mohamed-elalem/struct-validator?branch=master)
