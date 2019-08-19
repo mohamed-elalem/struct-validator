@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t elalem/struct-validator
+
+script:
+  - docker run elalem/struct-validator go test -race -cover
+  - docker run elalem/struct-validator go test -race -cover ./required
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
