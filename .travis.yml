@@ -3,6 +3,9 @@ sudo: required
 services:
   - go
 
+before_install:
+  go get -v github.com/mohamed-elalem/struct-validator
+
 script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
   - go test -race -coverprofile=coverage.txt -covermode=atomic ./required
